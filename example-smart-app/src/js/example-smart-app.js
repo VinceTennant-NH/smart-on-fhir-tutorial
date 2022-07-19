@@ -80,7 +80,7 @@
 
           //build table html 
           for(var i = 0; i < allergies.length; i++) {
-            allg.push(allergies[i].code.text);
+            allg.push("<tr><td>"+allergies[i].code.text+"</td><tr>");
           }
 
           console.log(allg);
