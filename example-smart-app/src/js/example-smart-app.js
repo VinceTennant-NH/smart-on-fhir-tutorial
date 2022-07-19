@@ -22,6 +22,17 @@
                     }
                   });
 
+        var alg = smart.patient.api.fetchAll({
+                    type: "AllergyIntolerance",
+                    query: {
+                      "clinical-status": "active"
+                    }
+        })
+
+        console.log(pt);
+        console.log(obv);
+        console.log(alg);
+
         $.when(pt, obv).fail(onError);
 
         $.when(pt, obv).done(function(patient, obv) {
