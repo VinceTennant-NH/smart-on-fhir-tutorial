@@ -35,7 +35,8 @@
           var byCodes = smart.byCodes(obv, 'code');
 
           console.log(allergies);
-          console.log(allergies[0]);
+          console.log(allergies.length);
+          console.log(allergies[0].code.text);
 
           var gender = patient.gender;
 
