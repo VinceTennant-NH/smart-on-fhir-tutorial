@@ -97,9 +97,8 @@
                   react.push(allergies[i].reaction[r].manifestation[m].text+ " ");
                 }
                 react.push("</td>");
+                allg.push(react);
               }
-              console.log(react);
-              allg.push(react);
             }
             allg.push("</tr>")
           }
