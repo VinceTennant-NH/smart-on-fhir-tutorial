@@ -32,6 +32,7 @@
         console.log(pt);
         console.log(obv);
         console.log(alg);
+        console.log(alg.length);
 
         $.when(pt, obv, alg).fail(onError);
 
@@ -75,6 +76,13 @@
 
           p.temp = getQuantityValueAndUnit(temp[0]);
           
+          var allergies = '';
+
+          //build table html 
+
+
+          p.allergies = allergies;
+
           ret.resolve(p);
         });
       } else {
@@ -99,6 +107,7 @@
       ldl: {value: ''},
       hdl: {value: ''},
       temp: {value: ''},
+      allergies: {value: ''},
     };
   }
 
@@ -142,7 +151,8 @@
     $('#diastolicbp').html(p.diastolicbp);
     $('#ldl').html(p.ldl);
     $('#hdl').html(p.hdl);
-    $('#temp').html(p.temp)
+    $('#temp').html(p.temp);
+    $('#allergies').html(p.allergies);
   };
 
 })(window);
