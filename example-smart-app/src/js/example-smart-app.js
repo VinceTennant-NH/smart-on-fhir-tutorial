@@ -87,10 +87,10 @@
             if(typeof allergies[i].reaction !== 'undefined') {
               let react = [];
               react.push("<td>")
-              if(typeof allergies[i].reaction[r].severity !== 'undefined') {
-                react.push("Severity: " + allergies[i].reaction[r].severity + "\n");
-              }
               for(let r = 0; r < allergies[i].reaction.length; r++) {
+                if(typeof allergies[i].reaction[r].severity !== 'undefined') {
+                  react.push("Severity: " + allergies[i].reaction[r].severity + "\n");
+                }
                 //loop through manifestations
                 for(let m = 0; m < allergies[i].reaction[r].manifestation.length; m++) {
                   react.push(allergies[i].reaction[r].manifestation[m].text+ " ");
