@@ -31,11 +31,11 @@
 
         $.when(pt, obv, alg).fail(onError);
 
-        $.when(pt, obv, alg).done(function(patient, obv) {
+        $.when(pt, obv, alg).done(function(patient, obv, allergies) {
           var byCodes = smart.byCodes(obv, 'code');
 
-          console.log(alg);
-          console.log(alg[0]);
+          console.log(allergies);
+          console.log(allergies[0]);
 
           var gender = patient.gender;
 
