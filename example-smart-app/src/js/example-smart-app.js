@@ -89,15 +89,15 @@
               react.push("<td>")
               for(let r = 0; r < allergies[i].reaction.length; r++) {
                 if(typeof allergies[i].reaction[r].severity !== 'undefined') {
-                  react.push("Severity: " + allergies[i].reaction[r].severity + "\n");
+                  react.push("Severity: " + allergies[i].reaction[r].severity + "</td>");
                 }
+                react.push("<td>");
                 //loop through manifestations
                 for(let m = 0; m < allergies[i].reaction[r].manifestation.length; m++) {
                   react.push(allergies[i].reaction[r].manifestation[m].text+ " ");
                 }
-                react.push("\n");
+                react.push("</td>");
               }
-              react.push("</td>")
               console.log(react);
               allg.push(react);
             }
