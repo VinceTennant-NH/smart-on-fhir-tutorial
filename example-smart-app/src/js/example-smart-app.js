@@ -28,16 +28,15 @@
                       "clinical-status": "active"
                     }
         })
-
-        console.log(pt);
-        console.log(obv);
-        console.log(alg);
-        console.log(alg.entry);
-
+        
         $.when(pt, obv, alg).fail(onError);
 
         $.when(pt, obv, alg).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
+
+          var alrgCodes = smart.byCodes(alg, 'enrty');
+          console.log(alrgCodes);
+
           var gender = patient.gender;
 
           var fname = '';
