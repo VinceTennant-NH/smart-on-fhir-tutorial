@@ -80,7 +80,9 @@
 
           //build table html 
           for(var i = 0; i < allergies.length; i++) {
-            allg.push("<tr><td>"+allergies[i].code.text+"</td><tr>");
+            if(typeof allergies[i] !== 'undefined') {
+              allg.push("<tr><td>"+allergies[i].code.text+"</td></tr>");
+            }
           }
 
           console.log(allg);
