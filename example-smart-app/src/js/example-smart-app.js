@@ -76,12 +76,16 @@
 
           p.temp = getQuantityValueAndUnit(temp[0]);
           
-          var allergies = '';
+          var allg = '';
 
           //build table html 
+          for(var i = 0; i < allergies.length; i++) {
+            allg.push(allergies[i].code.text);
+          }
 
+          console.log(allg);
 
-          p.allergies = allergies;
+          p.allergies = allg;
 
           ret.resolve(p);
         });
