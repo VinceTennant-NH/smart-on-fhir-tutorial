@@ -44,8 +44,6 @@
 
           var temp = byCodes('8310-5');
           
-          console.log(temp);
-          
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
