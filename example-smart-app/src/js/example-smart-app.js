@@ -79,10 +79,28 @@
           var allg = [];
 
           //build table html 
-          for(var i = 0; i < allergies.length; i++) {
-            if(typeof allergies[i] !== 'undefined') {
-              allg.push("<tr><td>"+allergies[i].code.text+"</td></tr>");
+          for(let i = 0; i < allergies.length; i++) {
+            if(typeof allergies[i].code.text !== 'undefined') {
+              allg.push("<tr><td>"+allergies[i].code.text+"</td>");
             }
+            // loop through all reactions, and thier severity and amnifestations
+            if(typeof allergies[i].reaction !== 'undefined') {
+              let react = [];
+              react.push("<td>")
+              if(typeof allergies[i].reaction[r].severity !== 'undefined') {
+                react.push("Severity: " + allergies[i].reaction[r].severity + "\n");
+              }
+              for(let r = 0; r < allergies[i].reaction.length; r++) {
+                //loop through manifestations
+                for(let m = 0; m < allergies[i].reaction[r].manifestation.length; m++) {
+                  react.push(allergies[i].reaction[r].manifestation[m].text+ " ");
+                }
+                react.push("\n");
+              }
+              react.push("</td>")
+              allg.push(react);
+            }
+            allg.push("</tr>")
           }
 
           console.log(allg);
