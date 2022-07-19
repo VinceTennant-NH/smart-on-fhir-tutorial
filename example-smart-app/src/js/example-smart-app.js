@@ -98,6 +98,7 @@
                 react.push("\n");
               }
               react.push("</td>")
+              console.log(react);
               allg.push(react);
             }
             allg.push("</tr>")
