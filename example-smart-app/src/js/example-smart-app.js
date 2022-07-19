@@ -76,7 +76,7 @@
 
           p.temp = getQuantityValueAndUnit(temp[0]);
           
-          var allg = '';
+          var allg = [];
 
           //build table html 
           for(var i = 0; i < allergies.length; i++) {
