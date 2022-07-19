@@ -32,7 +32,7 @@
         console.log(pt);
         console.log(obv);
         console.log(alg);
-        console.log(alg.length);
+        console.log(alg.entry);
 
         $.when(pt, obv, alg).fail(onError);
 
