@@ -34,10 +34,6 @@
         $.when(pt, obv, alg).done(function(patient, obv, allergies) {
           var byCodes = smart.byCodes(obv, 'code');
 
-          console.log(allergies);
-          console.log(allergies.length);
-          console.log(allergies[0].code.text);
-
           var gender = patient.gender;
 
           var fname = '';
@@ -79,32 +75,30 @@
           var allg = [];
 
           //build table html 
-          for(let i = 0; i < allergies.length; i++) {
-            if(typeof allergies[i].code.text !== 'undefined') {
-              allg.push("<tr><td>"+allergies[i].code.text+"</td>");
-            }
-            // loop through all reactions, and thier severity and amnifestations
-            if(typeof allergies[i].reaction !== 'undefined') {
-              let react = [];
-              react.push("<td>")
-              for(let r = 0; r < allergies[i].reaction.length; r++) {
-                if(typeof allergies[i].reaction[r].severity !== 'undefined') {
-                  react.push("Severity: " + allergies[i].reaction[r].severity + "</td>");
+          for (let i = 0; i < allergies.length; i++) {
+            if (typeof allergies[i].code.text !== 'undefined') {
+              allg.push("<tr><td>" + allergies[i].code.text + "</td>");
+
+              // loop through all reactions, and thier severity and and manifestations
+              if (typeof allergies[i].reaction !== 'undefined') {
+                for (let r = 0; r < allergies[i].reaction.length; r++) {
+                  allg.push("<td>");
+                  if (typeof allergies[i].reaction[r].severity !== 'undefined') {
+                    allg.push("Severity: " + allergies[i].reaction[r].severity);
+                  }
+                  allg.push("</td>");
+                  allg.push("<td>");
+                  //loop through manifestations
+                  for (let m = 0; m < allergies[i].reaction[r].manifestation.length; m++) {
+                    allg.push(allergies[i].reaction[r].manifestation[m].text + " ");
+                  }
+                  allg.push("</td>");
                 }
-                react.push("<td>");
-                //loop through manifestations
-                for(let m = 0; m < allergies[i].reaction[r].manifestation.length; m++) {
-                  react.push(allergies[i].reaction[r].manifestation[m].text+ " ");
-                }
-                react.push("</td>");
-                allg.push(react);
               }
+
+              allg.push("</tr>")
             }
-            allg.push("</tr>")
           }
-
-          console.log(allg);
-
           p.allergies = allg;
 
           ret.resolve(p);
