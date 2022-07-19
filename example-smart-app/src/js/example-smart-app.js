@@ -16,7 +16,8 @@
                     query: {
                       code: {
                         $or: ['http://loinc.org|8302-2', 'http://loinc.org|2085-9',
-                              'http://loinc.org|2089-1', 'http://loinc.org|85354-9']
+                              'http://loinc.org|2089-1', 'http://loinc.org|85354-9',
+                              'http://loinc.org|8310-5']
                       }
                     }
                   });
@@ -41,12 +42,15 @@
           var hdl = byCodes('2085-9');
           var ldl = byCodes('2089-1');
 
+          var temp = byCodes('8310-5');
+          
           var p = defaultPatient();
           p.birthdate = patient.birthDate;
           p.gender = gender;
           p.fname = fname;
           p.lname = lname;
           p.height = getQuantityValueAndUnit(height[0]);
+          p.temp = temp;
 
           if (typeof systolicbp != 'undefined')  {
             p.systolicbp = systolicbp;
