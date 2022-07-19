@@ -34,7 +34,8 @@
         $.when(pt, obv, alg).done(function(patient, obv) {
           var byCodes = smart.byCodes(obv, 'code');
 
-          console.log(getQuantityValueAndUnit(alg[0]));
+          console.log(alg);
+          console.log(alg[0]);
 
           var gender = patient.gender;
 
